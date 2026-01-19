@@ -16,7 +16,7 @@
   background: white;
   border-radius: 16px;
   padding: 16px;
-  max-height: calc(100vh - 48px);
+  max-height: 86vh;
   overflow: auto;
 }
 
