@@ -1,0 +1,114 @@
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+}
+
+.modal-card {
+  position: relative;
+  width: min(520px, 100%);
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal-title {
+  margin: 0 0 12px 0;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.modal-body {
+  display: grid;
+  gap: 16px;
+}
+
+.modal-image {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+.modal-section{
+  text-align: center;
+}
+
+.modal-section-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.modal-types {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  gap: 6px;
+}
+
+.type {
+  color: #ffffff;
+  font-size: 15px;
+  padding: 4px 8px;
+  border: 1px solid grey;
+  border-radius: 999px;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.modal-abilities {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ability {
+  margin-top: 10px;
+  background: #f2f2f2;
+  color: #000000;
+  font-size: 15px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.type-normal   { background: #A8A77A; }
+.type-fire     { background: #EE8130; }
+.type-water    { background: #6390F0; }
+.type-electric { background: #F7D02C; }
+.type-grass    { background: #7AC74C; }
+.type-ice      { background: #96D9D6; }
+.type-fighting { background: #C22E28; }
+.type-poison   { background: #A33EA1; }
+.type-ground   { background: #E2BF65; }
+.type-flying   { background: #A98FF3; }
+.type-psychic  { background: #F95587; }
+.type-bug      { background: #A6B91A; }
+.type-rock     { background: #B6A136; }
+.type-ghost    { background: #735797; }
+.type-dragon   { background: #6F35FC; }
+.type-dark     { background: #705746; }
+.type-steel    { background: #B7B7CE; }
+.type-fairy    { background: #D685AD; }
