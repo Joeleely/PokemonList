@@ -15,11 +15,12 @@ export default function PokedexPage() {
     const [query, setQuery] = useState("");
     const [selected, setSelected] = useState(null);
     const [showScrollTop, setShowScrollTop] = useState(false);
+    const [limit, setLimit] = useState(80);
 
     const { generationNumbers, pokemonMap, loading, error, activeGen, hiddenPokemon, activeNames } = usePokedexData(generation);
 
     const pokemonList = useMemo(() => {
-        const names = activeNames || [];
+        const names = (activeNames || []).slice(0, limit);
         const lower = query.trim().toLowerCase();
 
         const filtered = lower
@@ -38,14 +39,10 @@ export default function PokedexPage() {
             else available.push(name);
         }
 
-        const ordered = [...available, ...missing];
+        const orderedNames = [...available, ...missing];
+        const limitedNames = orderedNames.slice(0, limit);
 
-        //     return filtered
-        //         .map((n) => pokemonMap[n])
-        //         .filter(Boolean);
-        // }, [activeNames, pokemonMap, query]);
-
-        return ordered.map((name) => {
+        return limitedNames.map((name) => {
             return (
                 pokemonMap[name] || {
                     name,
@@ -56,9 +53,11 @@ export default function PokedexPage() {
                 }
             );
         });
-    }, [activeNames, pokemonMap, hiddenPokemon, query]);
+    }, [activeNames, pokemonMap, hiddenPokemon, query, limit]);
 
     //console.log("hiddenPokemon = " ,hiddenPokemon);
+
+    useEffect(() => setLimit(80), [activeGen]);
 
     useEffect(() => {
         const onScroll = () => {
@@ -113,6 +112,17 @@ export default function PokedexPage() {
                             onClose={() => setSelected(null)}
                         />
                     )}
+
+                    {activeNames?.length > limit && (
+                        <div className="load-more-wrap">
+                            <button
+                                className="load-more-btn"
+                                onClick={() => setLimit((x) => x + 80)}
+                            >
+                                Load more
+                            </button>
+                        </div>
+                    )}
                 </div>
             )}
 
@@ -127,11 +137,6 @@ export default function PokedexPage() {
                 </button>
             )}
 
-            {/* {hiddenPokemon.length > 0 && (
-                <small style={{ opacity: 0.6 }}>
-                    Some Pokémon could not be loaded.
-                </small>
-            )} */}
         </div >
     );
 }

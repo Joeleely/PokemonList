@@ -44,17 +44,31 @@
   color: #b91c1c;
 }
 
-/* .pokedex-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-  align-items: start;
-} */
+.load-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 80px;
+}
+
+.load-more-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #333;
+  color: white;
+}
+
+.load-more-btn:hover {
+  background: #555;
+}
+
 
 .scroll-top-btn {
   position: fixed;
   bottom: 5vh;
-  left: 50%;
+  left: 49%;
   background-color: rgba(51, 51, 51, 0.6);
   color: white;
   border: none;
